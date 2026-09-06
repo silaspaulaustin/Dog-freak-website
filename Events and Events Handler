@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaScript Exercises</title>
+<style type="text/css">
+body {
+	font-family:Verdana, Geneva, sans-serif; 
+	font-size:100%;
+	margin:0;
+	padding:0;
+}
+p {
+	color:#900;
+	margin-left:20px;
+}
+div#results {
+	background-color:#FF6;
+	height:auto;
+	width:500px;
+	border:1px solid red;
+	padding:10px;
+	margin-left:20px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	border-radius:7px;
+}
+div#more {
+	background-color: #39F;
+	height:auto;
+	width:500px;
+	border:1px solid #036;
+	padding:10px;
+	margin-left:20px;
+	margin-top:20px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	color:#CF0;
+}
+#form1 {
+	padding: 10px;
+	width: 500px;
+	border-style: solid;
+	border-color: #063;
+	border-radius: 15px;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	background-color: #CFF;
+	margin:20px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+   	
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#more').click(function(){
+        var message = "you clicked! <br/>";
+        $(this).append(message);
+    });
+
+    $('#form1').hide();
+
+    $('#p1').click(function(){
+        $('#form1').show();
+    });
+
+    $('#box1').focus(function(){
+        $(this).css('background-color','lightblue');
+    });
+
+    $('#box1').blur(function(){
+        $(this).css('background-color','pink');
+    });
+
+    $('#btn').click(function(){
+        var userinput = $('#box1').val();
+        console.log(userinput);
+        $('#results').append(userinput);
+    });
+});
+
+function validateForm() {
+	console.log('in the validate form function!');
+	var name = document.getElementById('name') ? document.getElementById('name').value : '';
+	var age = document.getElementById('age') ? document.getElementById('age').value : '';
+		 
+	if (name == '' || name == null) {
+		console.log('name is left blank!');
+		resultMsg('We need your name please');
+	} else {
+		resultMsg('Thanks ' + name);
+			 
+		if (age == '' || age == null || isNaN(age)) {
+			resultMsg('Please enter a number for your age');
+		} else {
+			resultMsg('Thanks ' + name + ' you are ' + age + ' -- yea, right!');
+				  
+			let skill = getSkill();
+			if (skill === false) {
+				resultMsg("Please select a skill");
+			} else {
+				moreMsg('success, you selected ' + skill);
+			}
+		}
+	}
+}
+
+function resultMsg(s) {
+	var resultsBox = document.getElementById('results');
+	resultsBox.innerHTML = s;
+}
+
+function moreMsg(s) {
+	var resultsBox = document.getElementById('more');
+	resultsBox.innerHTML = s;
+}
+
+function getSkill() {
+	var isChecked = false;
+	var theSelection;
+	var skills = document.getElementsByName('skillset');
+		 
+	for (var i = 0; i < skills.length; i++) {
+		if (skills[i].checked) {
+			isChecked = true;
+			theSelection = skills[i].value;
+			break;
+		}
+	}
+		 
+	if (isChecked == true) {
+		return theSelection;
+	} else {
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<p id="p1"><a href="#">First Paragraph</a></p>
+<p>Second Paragraph</p>
+
+<form name="form1" id="form1" action="" method="post">
+    <input type="text" id="box1">
+    <input id="btn" type="button" value="Relay a message">
+</form>
+
+<input type="button" value="submit" onclick="validateForm()">
+
+<div id="results"></div>
+<div id="more">Testing the results</div>
+</body>
+</html>
