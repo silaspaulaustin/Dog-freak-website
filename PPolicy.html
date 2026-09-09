@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dog Freaks</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dog_styles.css" />
+
+  <style>
+    @charset "UTF-8";
+    /* CSS Document */
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #999;
+      color: white;
+      background-image: url(img/bg.jpg);
+      background-repeat: repeat-x;
+      font: small Arial, Helvetica, Verdana, sans-serif;
+    }
+
+    #wrapper {
+      background-color: #fdf8f2;
+      color: black;
+      margin: 30px 40px;
+      padding: 10px;
+      max-width: 1200px;
+      box-sizing: border-box;
+    }
+
+    /* Header Styles */
+    #header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-logo img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    #header-bottom {
+      border-top: 1px solid #b9d2e3;
+      border-bottom: 1px solid #b9d2e3;
+      width: 100%;
+      padding: 5px 0;
+      box-sizing: border-box;
+    }
+
+    #header-bottom ul {
+      margin: 0;
+      padding: 0 30px 0 0;
+      text-align: right;
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    #header-bottom li {
+      display: inline-block;
+      background-color: #fdf8f2;
+      color: #990000;
+      margin-left: 15px;
+      white-space: nowrap;
+    }
+
+    #header-bottom a:link,
+    #header-bottom a:visited {
+      text-decoration: none;
+      background-color: #fdf8f2;
+      color: #990000;
+      padding: 5px 0;
+      display: block;
+    }
+
+    #tagline {
+      font-weight: bold;
+      background-color: #fdf8f2;
+      color: #050845;
+      font-style: italic;
+      margin: 0;
+      padding: 0 0 0 20px;
+      width: 300px;
+      float: left;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    #ball {
+      position: absolute;
+      top: 128px;
+      right: 52px;
+      z-index: 10;
+    }
+
+    /* Main Content Area */
+    #main {
+      margin-top: 10px;
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    #content {
+      margin: 0 240px 0 0;
+      border: 1px solid #b9d2e3;
+      background-color: white;
+      color: black;
+      width: calc(100% - 240px);
+      box-sizing: border-box;
+    }
+
+    #mainfeature {
+      background-image: url(img/mainimg.jpg);
+      background-repeat: no-repeat;
+      background-color: #112236;
+      color: white;
+      padding: 2em 2em 1em 200px;
+      background-size: contain;
+      background-position: left center;
+      min-height: 150px;
+    }
+
+    #mainfeature h2 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 140%;
+    }
+
+    #mainfeature p {
+      font-size: 110%;
+    }
+
+    #mainfeature p.more {
+      margin-top: 0;
+      text-align: right;
+    }
+
+    #mainfeature p.more a:link,
+    #mainfeature p.more a:visited {
+      color: white;
+      background-image: url(img/more-bullet.gif);
+      background-repeat: no-repeat;
+      background-position: center left;
+      padding: 14px;
+    }
+
+    #content .inner {
+      margin: 10px 20px 10px 40px;
+    }
+
+    #content .inner h2 {
+      color: #245185;
+      padding-bottom: 0.2em;
+      border-bottom: 1px solid #b9d2e3;
+      font-size: 110%;
+    }
+
+    #content .inner h3 {
+      font-size: 130%;
+    }
+
+    #content .inner h3 a:link,
+    #content .inner h3 a:visited {
+      color: #245185;
+    }
+
+    #content .inner p {
+      color: #666666;
+      font-size: 90%;
+    }
+
+    #content .inner .features li img {
+      float: left;
+      margin: 0 5px 5px 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #content .inner p.author {
+      font-weight: bold;
+    }
+
+    #content .inner p.more {
+      margin-top: 0;
+      text-align: right;
+    }
+
+    #content .inner p.more a:link,
+    #content .inner p.more a:visited {
+      color: #1e4c82;
+      background-image: url(img/more-bullet.gif);
+      background-repeat: no-repeat;
+      background-position: center left;
+      padding-left: 14px;
+      font-size: 90%;
+    }
+
+    /* Sidebar Styles */
+    #sidebar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 225px;
+      background-color: #F2F0EF;
+      color: white;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #sidebar h3 {
+      font-size: 110%;
+      background-image: url(img/sidebar-header-bg.jpg);
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0.2em 0 0.2em 10px;
+      font-weight: normal;
+    }
+
+    #sidebar ul {
+      list-style-image: url(img/more-bullet.gif);
+      margin-left: 20px;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      padding: 5px 0;
+    }
+
+    #sidebar p,
+    #sidebar li {
+      font-size: 90%;
+      line-height: 1.4em;
+      padding: 0 10px;
+    }
+
+    #sidebar ul a:link,
+    #sidebar ul a:visited {
+      color: #990000;
+    }
+
+    #sidebar .date {
+      font-weight: bold;
+    }
+
+    /* Form Styles */
+    #regform {
+      padding: 10px;
+    }
+
+    #regform div {
+      margin-bottom: 10px;
+    }
+
+    #regform label {
+      display: block;
+      margin-bottom: 5px;
+      color: black;
+    }
+
+    #regform input[type="email"] {
+      width: calc(100% - 20px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    #regform button {
+      background-color: #245185;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      width: auto;
+    }
+
+    /* ========================================================= */
+    /* MEDIA QUERIES */
+    /* ========================================================= */
+
+    /* Tablet and Smaller Desktop */
+    @media screen and (max-width: 960px) {
+      #wrapper {
+        margin: 15px 20px;
+        padding: 10px;
+        max-width: 100%;
+      }
+
+      #tagline {
+        float: none;
+        width: auto;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      #header-bottom ul {
+        justify-content: center;
+        padding: 0;
+      }
+
+      #header-bottom li {
+        margin: 0 8px;
+      }
+
+      #ball {
+        position: static;
+        margin: 10px auto;
+        display: block;
+      }
+
+      #main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #content {
+        margin: 0 0 20px 0;
+        width: 98%;
+        padding: 10px;
+      }
+
+      #mainfeature {
+        padding: 1em;
+        background-position: top center;
+        background-size: cover;
+        min-height: 100px;
+        text-align: center;
+      }
+
+      #mainfeature h2,
+      #mainfeature p {
+        text-align: center;
+      }
+
+      #sidebar {
+        position: static;
+        width: 98%;
+        margin: 0;
+        padding-bottom: 10px;
+      }
+
+      #sidebar ul {
+        margin-left: 20px;
+      }
+
+      #regform input[type="email"],
+      #regform button {
+        width: calc(100% - 20px);
+      }
+    }
+
+    /* Mobile Devices */
+    @media screen and (max-width: 640px) {
+      body {
+        font-size: 90%;
+      }
+
+      #wrapper {
+        margin: 10px;
+        padding: 5px;
+      }
+
+      #header-bottom #tagline {
+        font-size: 0.9em;
+        padding: 5px;
+      }
+
+      #header-bottom ul {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+      }
+
+      #header-bottom li {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      #header-bottom a:link,
+      #header-bottom a:visited {
+        padding: 8px 0;
+      }
+
+      #mainfeature {
+        padding: 1em 0.5em;
+        background-size: cover;
+        background-position: center;
+        min-height: 80px;
+      }
+
+      #mainfeature h2 {
+        font-size: 120%;
+      }
+
+      #mainfeature p {
+        font-size: 100%;
+      }
+
+      #content .inner {
+        margin: 5px 10px 5px 20px;
+      }
+
+      #content .inner h2,
+      #content .inner h3 {
+        font-size: 100%;
+      }
+
+      #content .inner p {
+        font-size: 85%;
+      }
+
+      #regform input[type="email"],
+      #regform button {
+        width: 95%;
+      }
+    }
+
+    /* Very Small Mobile Devices */
+    @media screen and (max-width: 480px) {
+      #header-bottom #tagline {
+        font-size: 0.8em;
+      }
+
+      #mainfeature h2 {
+        font-size: 110%;
+      }
+
+      #mainfeature p {
+        font-size: 90%;
+      }
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <header id="header">
+      <div class="header-logo">
+        <img src="images/logo.jpg" width="308" height="110" alt="Dog Freaks Logo">
+      </div>
+
+      <div id="header-bottom">
+        <p id="tagline">The Home of everything about DOGS from dogs</p>
+
+        <nav>
+          <ul class="nav-links">
+            <li><a href="landing.html">Home</a></li>
+            <li><a href="mainstory.html">Mainstory</a></li>
+            <li><a href="makkiestory.html">Makkiestory</a></li>
+            <li><a href="joestory.html">Joestory</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="ppolicy.html">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="mainfeature">
+        <h2>Maxxie Says</h2>
+        <p>Maxxie tells us how a change of dog food has given his fur a new look.</p>
+        <p class="more"><a href="#">Read More</a></p>
+      </section>
+
+      <section id="content">
+        <div class="inner">
+          <h2>Privacy Policy</h2>
+
+          <article>
+            <h4>The Republic</h4>
+
+            <p>
+              Kid, I've flown from one side of this galaxy to the other.
+              I've seen a lot of strange stuff, but I've never seen anything
+              to make me believe there's one all-powerful Force controlling everything...
+            </p>
+
+            <ol>
+              <li>I can't get involved! I've got work to do...</li>
+              <li>Hokey religions and ancient weapons...</li>
+              <li>A tremor in the Force...</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside id="sidebar">
+      <section class="inner">
+        <h3>Site Search</h3>
+
+        <form method="post" action="#" id="searchform">
+          <label for="keywords">Keywords:</label>
+          <input type="text" name="keywords" id="keywords" class="text" />
+          <button type="submit" id="btnSearch">Search</button>
+        </form>
+      </section>
+
+      <section class="inner">
+        <h3>Coming Events</h3>
+
+        <ul>
+          <li><span class="date">10 Apr</span> – <a href="#">Seattle dog show</a></li>
+          <li><span class="date">13 Apr</span> – <a href="#">World Dog Skateboarding Championship</a></li>
+          <li><span class="date">21 Apr</span> – <a href="#">Hotdog Dog Eating Championship</a></li>
+        </ul>
+      </section>
+
+      <section class="inner">
+        <h3>Food of the Month</h3>
+        <h4>The Big Bone: Is it good for you?</h4>
+        <p>Eti bibendum mauris nec nulla. Nullam cursus ullamcorper quam. Sed cursus vestibulum leo.</p>
+        <p><a href="#">More</a></p>
+      </section>
+    </aside>
+
+    <footer>
+      <p>&copy; 2025 Dog Freaks. All rights reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
